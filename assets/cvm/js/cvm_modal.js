@@ -4,12 +4,15 @@ document.addEventListener("DOMContentLoaded", function(event)
 {
 	let modalButtonList = document.querySelectorAll(".modal-btn");
 	let btnLength = modalButtonList.length;
-
+	let modalContainerList = document.querySelectorAll(".modal-container");
+	let ctrLength = modalContainerList.length;
+	// link button(s) to container(s)
 	for (let i = btnLength - 1; i >= 0; i--)
 	{
 		// check if modal button has a class that start with "target_"
-		modalButtonList[i]["classList"].forEach(function(className)
+		for (let j = modalButtonList[i]["classList"].length - 1; j >= 0; j--)
 		{
+			let className = modalButtonList[i]["classList"][j];
 			if (className.indexOf("target_") != -1)
 			{
 				// get modal container by id from part of the class button
@@ -22,18 +25,21 @@ document.addEventListener("DOMContentLoaded", function(event)
 					{
 						modalContainer.classList.toggle("hidden");
 					}, false);
-
-					// close (if click outside content)
-					modalContainer.addEventListener("click", function(event)
-					{
-						if (modalContainer == event.target)
-						{
-							modalContainer.classList.toggle("hidden");
-						}
-					}, false);
 				}
+				break;
 			}
-		});
+		}
+	}
+	// close (if click outside content)
+	for (let i = ctrLength - 1; i >= 0; i--)
+	{
+		modalContainerList[i].addEventListener("click", function(event)
+		{
+			if (modalContainerList[i] == event.target)
+			{
+				modalContainerList[i].classList.toggle("hidden");
+			}
+		}, false);
 	}
 });
 

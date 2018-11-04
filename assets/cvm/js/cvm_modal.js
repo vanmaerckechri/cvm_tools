@@ -44,6 +44,8 @@ document.addEventListener("DOMContentLoaded", function(event)
 });
 
 /* 	
+	(sass: "assets/cvm/sass/_modal.scss")
+
 	HTML:
 
 	<link rel="stylesheet" href="assets/cvm/css/cvm_style.css">

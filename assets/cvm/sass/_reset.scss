@@ -23,9 +23,9 @@ body
 #main
 {
 	max-width: $mainCtnrMaxWidth;
-	padding: .5rem $mainCtnrHorMargin;
+	padding: $mainCtnrHorMargin;
 	width: 100%;
 	flex: 1;
-	
+
 	background-color: white;
 }

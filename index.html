@@ -10,8 +10,29 @@
     <title></title>
 </head>
 <body>
-	<header id="header" class="view-content"></header>
+	<header id="header" class="view-content">
+		<div class="headerContent">
+			<p>Header Left</p>
+			<p>Header Right</p>
+		</div>
+	</header>
 	<div id="main" class="main">
+		<nav>
+			<ul class="menu-burger">
+				<li><a href="">page 1</a></li>
+				<li class="menu-secondary">page 2
+					<ul>
+						<li><a href="">page 2.1</a></li>
+						<li><a href="">page 2.2</a></li>
+						<li><a href="">page 22222.3</a></li>
+						<li><a href="">page 2.4</a></li>
+					</ul>
+				</li>
+				<li><a href="">page 3</a></li>
+				<li><a href="">page 4</a></li>
+				<li><a href="">page 5</a></li>
+			</ul>
+		</nav>
 	    <!--Modal Test-->
 	    <div id="test01" class="modal-container hidden">
 	    	<div>
@@ -21,9 +42,13 @@
 	    </div>
 	   	<button class="modal-btn target_test01">open1</button>
 	</div>
-    <footer id="footer" class="view-content"></footer>
+    <footer id="footer" class="view-content">
+    	<div class="footerContent">
+			<p>Footer Left</p>
+			<p>Footer Right</p>
+		</div>
+    </footer>
     <script type="text/javascript" src="assets/cvm/js/cvm_createdomelem.js"></script>
     <script type="text/javascript" src="assets/cvm/js/cvm_modal.js"></script>
-    <script type="text/javascript" src="assets/cvm/js/cvm_view.js"></script>
 </body>
 </html>

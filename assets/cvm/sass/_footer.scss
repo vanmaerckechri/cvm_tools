@@ -1,12 +1,12 @@
 footer
 {
-	padding: .5rem $mainCtnrHorMargin;
 	width: 100vw;
 	background-color: pink;
 }
 .footerContent
 {
 	margin: 0 auto;
+	padding: $mainCtnrHorMargin;
 	max-width: $mainCtnrMaxWidth;
 	width: 100%;
 	display: flex;

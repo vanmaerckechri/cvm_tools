@@ -2,3 +2,10 @@ $font-size_Main: 16px;
 
 $mainCtnrMaxWidth: 1280px;
 $mainCtnrHorMargin: 1rem;
+
+@mixin widthMaxContent
+{
+	width: intrinsic;
+	width: -moz-max-content;
+	width: -webkit-max-content;
+}

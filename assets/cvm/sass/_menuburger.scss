@@ -1,0 +1,131 @@
+@mixin nav-button
+{
+	padding: 0.5em;
+	display: block;
+	font-size: 1.2rem;
+	background-color: white;
+	&:hover
+	{
+		background-color: orange;
+	}
+}
+.menu-burger
+{
+	padding-left: 0;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	li
+	{
+		position: relative;
+		list-style: none;
+		a
+		{
+			@include nav-button;
+			text-decoration: none;
+			&:first-child
+			{
+				margin-left: 0;
+			}
+			&:last-child
+			{
+				margin-right: 0;
+			}
+		}
+	}
+}
+.menu-secondary
+{
+	@include nav-button;
+	position: relative;
+	overflow: hidden;
+	ul
+	{
+		margin-top: 0.5rem;
+		padding-left: 0;
+		position: absolute;
+		left: 0;
+		opacity: 0;
+		transition: opacity .5s;
+	}
+	&:hover
+	{
+		overflow: visible;
+		ul
+		{
+			opacity: 1;
+		}
+	}
+	li
+	{
+		@include widthMaxContent;
+	}
+}
+@media screen and (max-width: 382px)
+{
+	.menu-burger
+	{
+		position: relative;
+		height: 48px;
+		flex-direction: column;
+		background-color: black;
+		transition: opacity .5s, background-color .5s;
+		overflow: hidden;
+		li
+		{
+			width: 100%;
+			opacity: 0;
+			transition: opacity .5s;
+			text-align: center;
+			&:first-child
+			{
+				margin-top: 48px;
+			}
+		}
+		&::before
+		{
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 48px;
+			height: 48px;
+			background-image: url("../../cvm/img/menuburger.png");
+			background-size: 100% auto;
+		}
+		&:hover
+		{
+			overflow: visible;
+			cursor: pointer;
+			background-color: white;
+			li
+			{
+				opacity: 1;
+			}
+		}
+	}	
+	.menu-secondary
+	{
+		background-color: grey;
+		overflow: visible;
+		ul
+		{
+			position: static;
+			width: 100%;
+			opacity: 1;
+			li
+			{
+				&:first-child
+				{
+					margin-top: 0;
+				}
+			}
+		}
+		&:hover
+		{
+			cursor: default;
+			background-color: grey;
+		}
+	}
+}

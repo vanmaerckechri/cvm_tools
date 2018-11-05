@@ -14,7 +14,6 @@ html
 body
 {
 	min-height: 100vh;
-	max-width: $mainCtnrMaxWidth;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -23,10 +22,10 @@ body
 }
 #main
 {
-	flex: 1;
-}
-header, #main, footer
-{
+	max-width: $mainCtnrMaxWidth;
 	padding: .5rem $mainCtnrHorMargin;
 	width: 100%;
+	flex: 1;
+	
+	background-color: white;
 }

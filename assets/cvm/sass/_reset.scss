@@ -23,7 +23,7 @@ body
 #main
 {
 	max-width: $mainCtnrMaxWidth;
-	padding: 0 $mainCtnrMargin;
+	padding: $mainCtnrMargin;
 	width: 100%;
 	flex: 1;
 

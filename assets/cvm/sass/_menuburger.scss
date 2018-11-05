@@ -1,6 +1,7 @@
 @mixin nav-button
 {
-	padding: 0.5em;
+	border: 1px solid black;
+	padding: 0.5rem;
 	display: block;
 	font-size: 1.2rem;
 	background-color: white;
@@ -11,30 +12,37 @@
 }
 .menu-burger
 {
-	padding-left: 0;
-	display: flex;
-	justify-content: flex-start;
-	align-items: flex-start;
-	li
+	padding-top: $mainCtnrMargin;
+	// input checkbox for click envent on hamburger button
+	input
 	{
-		position: relative;
-		list-style: none;
-		a
+		display: none;
+		width: 56px;
+		height: 48px;
+	}
+	ul
+	{
+		padding-left: 0;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		li
 		{
-			@include nav-button;
-			text-decoration: none;
-			&:first-child
-			{
-				margin-left: 0;
-			}
+			margin: 0 0.5rem 0.5rem 0;
+			list-style: none;
 			&:last-child
 			{
 				margin-right: 0;
 			}
+			a
+			{
+				@include nav-button;
+				text-decoration: none;
+			}
 		}
 	}
 }
-.menu-secondary
+/*.menu-secondary
 {
 	@include nav-button;
 	position: relative;
@@ -60,52 +68,74 @@
 	{
 		@include widthMaxContent;
 	}
-}
-@media screen and (max-width: 382px)
+}*/
+@media screen and (max-width: 331px)
 {
 	.menu-burger
 	{
-		margin: 0 auto;
+		padding-top: 0;
 		position: relative;
-		height: 48px;
-		width: 48px;
-		flex-direction: column;
-		transition: opacity .5s, background-color .5s;
-		overflow: hidden;
-		li
+		input
 		{
-			width: 100%;
+			margin: 0 auto;
+			display: block;
 			opacity: 0;
-			transition: opacity .5s;
-			text-align: center;
-			&:first-child
+			&:hover
 			{
-				margin-top: 48px;
+				cursor: pointer;
 			}
 		}
-		&::before
+		input:checked ~ ul
 		{
-			content: "";
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			width: 48px;
-			height: 48px;
-			background-image: url("../../cvm/img/menuburger.png");
-			background-size: 100% auto;
+			max-height: 100%;
+			transform: translateX(0);
 		}
-		&:hover
+		input:checked ~ span, input:checked
 		{
 			width: 100%;
-			overflow: visible;
-			cursor: pointer;
+		}
+		ul
+		{
+			max-height: 0;
+			flex-direction: column;
+			transform: translateX(calc(-100% - #{$mainCtnrMargin}));
+			transition: transform 0.5s, max-height 0.3s;
 			li
 			{
-				opacity: 1;
+				margin: 0 0 0.5rem 0;
+				width: 100%;
+			}
+		}
+		// hamburger icon
+		span
+		{
+			margin-left: auto;
+			margin-right: auto;
+			position: absolute;
+			left: 50%;
+			top: 0;
+			width: 56px;
+			height: 3px;
+			display: block;
+			background-color: orange;
+			transform: translateX(-50%);
+			transition: width 0.5s;
+			pointer-events: none;
+			&:nth-of-type(1)
+			{
+				margin-top: 12px;
+			}
+			&:nth-of-type(2)
+			{
+				margin-top: 24px;
+			}
+			&:nth-of-type(3)
+			{
+				margin-top: 36px;
 			}
 		}
 	}	
+	/*	
 	.menu-secondary
 	{
 		padding: 1px;
@@ -130,4 +160,5 @@
 			background-color: grey;
 		}
 	}
+	*/
 }

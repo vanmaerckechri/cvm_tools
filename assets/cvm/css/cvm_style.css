@@ -1,20 +1,20 @@
-html, body, header, nav, footer, section, div, span, h1, h2, h3, p, a, blockquote, cite, img, ol, ul, li, form, fieldset, legend, label, input, button { margin: 0; -webkit-box-sizing: border-box; box-sizing: border-box; }
+html, body, header, nav, footer, section, div, span, h1, h2, h3, p, a, blockquote, cite, img, ol, ul, li, form, fieldset, legend, label, input, button { margin: 0; box-sizing: border-box; }
 
-html { width: 100vw; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; font-size: 16px; }
+html { width: 100vw; display: flex; justify-content: center; align-items: center; font-size: 16px; }
 
-body { min-height: 100vh; width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+body { min-height: 100vh; width: 100%; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; }
 
-#main { max-width: 1280px; padding: 1rem; width: 100%; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; background-color: white; }
+#main { max-width: 1280px; padding: 1rem; width: 100%; flex: 1; background-color: white; }
 
 header { width: 100vw; background-color: pink; }
 
-.headerContent { margin: 0 auto; padding: 1rem; max-width: 1280px; width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.headerContent { margin: 0 auto; padding: 1rem; max-width: 1280px; width: 100%; display: flex; justify-content: space-between; align-items: center; }
 
 footer { width: 100vw; background-color: pink; }
 
-.footerContent { margin: 0 auto; padding: 1rem; max-width: 1280px; width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.footerContent { margin: 0 auto; padding: 1rem; max-width: 1280px; width: 100%; display: flex; justify-content: space-between; align-items: center; }
 
-.menu-burger { padding-left: 0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; }
+.menu-burger { padding-left: 0; display: flex; justify-content: flex-start; align-items: flex-start; }
 .menu-burger li { position: relative; list-style: none; }
 .menu-burger li a { padding: 0.5em; display: block; font-size: 1.2rem; background-color: white; text-decoration: none; }
 .menu-burger li a:hover { background-color: orange; }
@@ -23,22 +23,22 @@ footer { width: 100vw; background-color: pink; }
 
 .menu-secondary { padding: 0.5em; display: block; font-size: 1.2rem; background-color: white; position: relative; overflow: hidden; }
 .menu-secondary:hover { background-color: orange; }
-.menu-secondary ul { margin-top: 0.5rem; padding-left: 0; position: absolute; left: 0; opacity: 0; -webkit-transition: opacity .5s; transition: opacity .5s; }
+.menu-secondary ul { margin-top: 0.5rem; padding-left: 0; position: absolute; left: 0; opacity: 0; transition: opacity .5s; }
 .menu-secondary:hover { overflow: visible; }
 .menu-secondary:hover ul { opacity: 1; }
 .menu-secondary li { width: intrinsic; width: -moz-max-content; width: -webkit-max-content; }
 
-@media screen and (max-width: 382px) { .menu-burger { position: relative; height: 48px; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; background-color: black; -webkit-transition: opacity .5s, background-color .5s; transition: opacity .5s, background-color .5s; overflow: hidden; }
-  .menu-burger li { width: 100%; opacity: 0; -webkit-transition: opacity .5s; transition: opacity .5s; text-align: center; }
+@media screen and (max-width: 382px) { .menu-burger { margin: 0 auto; position: relative; height: 48px; width: 48px; flex-direction: column; transition: opacity .5s, background-color .5s; overflow: hidden; }
+  .menu-burger li { width: 100%; opacity: 0; transition: opacity .5s; text-align: center; }
   .menu-burger li:first-child { margin-top: 48px; }
-  .menu-burger::before { content: ""; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 48px; height: 48px; background-image: url("../../cvm/img/menuburger.png"); background-size: 100% auto; }
-  .menu-burger:hover { overflow: visible; cursor: pointer; background-color: white; }
+  .menu-burger::before { content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 48px; height: 48px; background-image: url("../../cvm/img/menuburger.png"); background-size: 100% auto; }
+  .menu-burger:hover { width: 100%; overflow: visible; cursor: pointer; }
   .menu-burger:hover li { opacity: 1; }
-  .menu-secondary { background-color: grey; overflow: visible; }
+  .menu-secondary { padding: 1px; background-color: grey; overflow: visible; }
   .menu-secondary ul { position: static; width: 100%; opacity: 1; }
   .menu-secondary ul li:first-child { margin-top: 0; }
   .menu-secondary:hover { cursor: default; background-color: grey; } }
-.modal-container { width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; background-color: rgba(255, 255, 255, 0.9); opacity: 1; pointer-events: auto; -webkit-transition: opacity .5s; transition: opacity .5s; }
+.modal-container { width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; display: flex; justify-content: center; align-items: center; background-color: rgba(255, 255, 255, 0.9); opacity: 1; pointer-events: auto; transition: opacity .5s; }
 
 .hidden { opacity: 0; pointer-events: none; }
 

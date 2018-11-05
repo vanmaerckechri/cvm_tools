@@ -1,6 +1,7 @@
+$nav-button_borderSize: 1px;
 @mixin nav-button
 {
-	border: 1px solid black;
+	border: $nav-button_borderSize solid black;
 	padding: 0.5rem;
 	display: block;
 	font-size: 1.2rem;
@@ -15,6 +16,8 @@
 	// input checkbox for click envent on hamburger button
 	input
 	{
+		margin-top: $mainCtnrMargin;
+		margin-bottom: $mainCtnrMargin;
 		display: none;
 		width: 56px;
 		height: 48px;
@@ -41,20 +44,11 @@
 		}
 	}
 }
-/*.menu-secondary
+.menu-sub
 {
 	@include nav-button;
 	position: relative;
 	overflow: hidden;
-	ul
-	{
-		margin-top: 0.5rem;
-		padding-left: 0;
-		position: absolute;
-		left: 0;
-		opacity: 0;
-		transition: opacity .5s;
-	}
 	&:hover
 	{
 		overflow: visible;
@@ -63,12 +57,28 @@
 			opacity: 1;
 		}
 	}
-	li
+	ul
 	{
-		@include widthMaxContent;
+		margin-top: 0.5rem;
+		margin-left: calc(-1 * #{$nav-button_borderSize});
+		position: absolute;
+		left: 0;
+		opacity: 0;
+		flex-direction: column;
+		align-items: flex-start;
+		transition: opacity .5s;
+		li
+		{
+			margin: 0.5rem 0 0 0;
+			width: max-content;
+			a
+			{
+				width: -moz-max-content
+			}
+		}
 	}
-}*/
-@media screen and (max-width: 331px)
+}
+@media screen and (max-width: 408px)
 {
 	.menu-burger
 	{
@@ -78,7 +88,7 @@
 			max-height: 0;
 			flex-direction: column;
 			transform: translateX(calc(-100% - #{$mainCtnrMargin}));
-			transition: transform 0.5s, max-height 0.3s;
+			transition: transform 0.5s, max-height 0.5s;
 			li
 			{
 				margin: 0 0 0.5rem 0;
@@ -106,17 +116,18 @@
 			}
 			&:nth-of-type(2)
 			{
-				margin-top: 17px;
+				margin-top: 22px;
 			}
 			&:nth-of-type(3)
 			{
-				margin-top: 34px;
+				margin-top: 45px;
 				transform-origin: left bottom;
 			}
 		}
 		input
 		{
-			margin: 0 auto;
+			margin-left: auto;
+			margin-right: auto;
 			display: block;
 			opacity: 0;
 			&:hover
@@ -133,7 +144,7 @@
 		{
 			&:nth-of-type(1)
 			{
-				margin-top: 17px;
+				margin-top: 22px;
 				transform: rotate(45deg) translateX(-50%);
 			}
 			&:nth-of-type(2)
@@ -142,13 +153,13 @@
 			}			
 			&:nth-of-type(3)
 			{
-				margin-top: 17px;
+				margin-top: 22px;
 				transform: rotate(-45deg) translateX(-50%);
 			}
 		}
 	}	
 	/*	
-	.menu-secondary
+	.menu-sub
 	{
 		padding: 1px;
 		background-color: grey;

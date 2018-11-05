@@ -28,20 +28,20 @@ $nav-button_borderSize: 1px;
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
-		li
+	}
+	li
+	{
+		margin: 0 0.5rem 0.5rem 0;
+		list-style: none;
+		&:last-child
 		{
-			margin: 0 0.5rem 0.5rem 0;
-			list-style: none;
-			&:last-child
-			{
-				margin-right: 0;
-			}
-			a
-			{
-				@include nav-button;
-				text-decoration: none;
-			}
+			margin-right: 0;
 		}
+	}
+	a
+	{
+		@include nav-button;
+		text-decoration: none;
 	}
 }
 .menu-sub
@@ -67,15 +67,14 @@ $nav-button_borderSize: 1px;
 		flex-direction: column;
 		align-items: flex-start;
 		transition: opacity .5s;
-		li
-		{
-			margin: 0.5rem 0 0 0;
-			width: max-content;
-			a
-			{
-				width: -moz-max-content
-			}
-		}
+	}
+	li
+	{
+		margin: 0.5rem 0 0 0;
+	}
+	a
+	{
+		@include widthMaxContent;
 	}
 }
 @media screen and (max-width: 408px)
@@ -89,11 +88,11 @@ $nav-button_borderSize: 1px;
 			flex-direction: column;
 			transform: translateX(calc(-100% - #{$mainCtnrMargin}));
 			transition: transform 0.5s, max-height 0.5s;
-			li
-			{
-				margin: 0 0 0.5rem 0;
-				width: 100%;
-			}
+		}
+		li
+		{
+			margin: 0 0 0.5rem 0;
+			width: 100%;
 		}
 		// hamburger icon
 		span
@@ -158,30 +157,24 @@ $nav-button_borderSize: 1px;
 			}
 		}
 	}	
-	/*	
 	.menu-sub
 	{
-		padding: 1px;
-		background-color: grey;
 		overflow: visible;
-		ul
-		{
-			position: static;
-			width: 100%;
-			opacity: 1;
-			li
-			{
-				&:first-child
-				{
-					margin-top: 0;
-				}
-			}
-		}
+		background-color: grey;
 		&:hover
 		{
-			cursor: default;
 			background-color: grey;
 		}
+		ul
+		{
+			max-height: inherit;
+			position: static;
+			opacity: 1;
+			transform: none;
+		}	
+		a
+		{
+			width: 100%;	
+		}
 	}
-	*/
 }

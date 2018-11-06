@@ -56,7 +56,7 @@ footer { width: 100vw; background-color: pink; }
 .readMore-container input:checked ~ .readMore-content { max-height: 100%; }
 .readMore-container input:checked ~ span::after { content: "...voir moins"; }
 
-.modal-container { width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; background-color: rgba(255, 255, 255, 0.9); opacity: 1; pointer-events: auto; -webkit-transition: opacity .5s; transition: opacity .5s; }
+.modal-container { width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; background-color: rgba(255, 255, 255, 0.9); opacity: 1; pointer-events: auto; -webkit-transition: opacity .5s; transition: opacity .5s; z-index: 10; }
 
 .hidden { opacity: 0; pointer-events: none; }
 

@@ -13,6 +13,8 @@ $nav-button_borderSize: 1px;
 }
 .menu-burger
 {
+	position: relative;
+	z-index: 2;
 	// input checkbox for click envent on hamburger button
 	input
 	{

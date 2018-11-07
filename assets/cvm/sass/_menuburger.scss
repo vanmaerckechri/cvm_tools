@@ -1,14 +1,13 @@
-$nav-button_borderSize: 1px;
 @mixin nav-button
 {
-	border: $nav-button_borderSize solid black;
+	border: $mainNavLink-borderSize solid black;
 	padding: 0.5rem;
 	display: block;
 	font-size: 1.2rem;
 	background-color: white;
 	&:hover
 	{
-		background-color: orange;
+		background-color: $mainNavLinkHover-color;
 	}
 }
 .menu-burger
@@ -18,8 +17,8 @@ $nav-button_borderSize: 1px;
 	// input checkbox for click envent on hamburger button
 	input
 	{
-		margin-top: $mainCtnrMargin;
-		margin-bottom: $mainCtnrMargin;
+		margin-top: $mainCtnr-margin;
+		margin-bottom: $mainCtnr-margin;
 		display: none;
 		width: 56px;
 		height: 48px;
@@ -33,7 +32,7 @@ $nav-button_borderSize: 1px;
 	}
 	li
 	{
-		margin: 0 0.5rem 0.5rem 0;
+		margin: 0.5rem 0.5rem 0.5rem 0;
 		list-style: none;
 		&:last-child
 		{
@@ -62,7 +61,7 @@ $nav-button_borderSize: 1px;
 	ul
 	{
 		margin-top: 0.5rem;
-		margin-left: calc(-1 * #{$nav-button_borderSize});
+		margin-left: calc(-1 * #{$mainNavLink-borderSize});
 		position: absolute;
 		left: 0;
 		opacity: 0;
@@ -88,8 +87,8 @@ $nav-button_borderSize: 1px;
 		{
 			max-height: 0;
 			flex-direction: column;
-			transform: translateX(calc(-100% - #{$mainCtnrMargin}));
-			transition: transform 0.5s, max-height 0.5s;
+			transform: translateX(calc(-100% - #{$mainCtnr-margin}));
+			transition: transform 0.3s, max-height 0.3s;
 		}
 		li
 		{
@@ -107,7 +106,7 @@ $nav-button_borderSize: 1px;
 			width: 48px;
 			height: 3px;
 			display: block;
-			background-color: orange;
+			background-color: $mainNavLinkHover-color;
 			transform: translateX(-50%);
 			transition: opacity 0.5s, transform 0.5s, margin-top 0.5s;
 			pointer-events: none;

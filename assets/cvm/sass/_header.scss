@@ -6,8 +6,8 @@ header
 .headerContent
 {
 	margin: 0 auto;
-	padding: $mainCtnrMargin;
-	max-width: $mainCtnrMaxWidth;
+	padding: $mainCtnr-margin;
+	max-width: $mainCtnr-maxWidth;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;

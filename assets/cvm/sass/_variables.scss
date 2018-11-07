@@ -1,8 +1,18 @@
-$font-size_Main: 16px;
+$mainText-fontSize: 16px;
 
-$mainCtnrMaxWidth: 1280px;
-$mainCtnrMargin: 1rem;
-$mainSizeButton: 3rem;
+// main container
+$mainCtnr-maxWidth: 1280px;
+$mainCtnr-margin: 1rem;
+
+$mainSelected-color: purple;
+
+// buttons
+$mainButtonHover-color: orange;
+$mainButton-size: 3rem;
+
+// navigation
+$mainNavLinkHover-color: orange;
+$mainNavLink-borderSize: 1px;
 
 @mixin widthMaxContent
 {

@@ -9,7 +9,7 @@ html
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: $font-size_Main;
+	font-size: $mainText-fontSize;
 }
 body
 {
@@ -22,11 +22,19 @@ body
 }
 #main
 {
-	max-width: $mainCtnrMaxWidth;
-	padding-left: $mainCtnrMargin;
-	padding-right: $mainCtnrMargin;
+	max-width: $mainCtnr-maxWidth;
+	padding-left: $mainCtnr-margin;
+	padding-right: $mainCtnr-margin;
 	width: 100%;
 	flex: 1;
 
 	background-color: white;
+}
+button
+{
+	&:hover
+	{
+		background-color: $mainButtonHover-color;
+		cursor: pointer;
+	}
 }

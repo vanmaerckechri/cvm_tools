@@ -13,9 +13,11 @@
 	pointer-events: auto;
 	transition: opacity .5s;
 	z-index: 10;
-}
-.hidden
-{
-	opacity: 0;
-	pointer-events: none;
+	& > div
+	{
+		margin: $mainCtnr-margin;
+		padding: $mainCtnr-margin;
+		max-width: $mainCtnr-maxWidth;
+		background-color: white;
+	}
 }

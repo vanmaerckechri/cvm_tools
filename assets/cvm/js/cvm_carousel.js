@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(event)
 	let loadCarousel = function(id, path, fileName, imgAlt)
 	{
 		let carouselContainer = document.getElementById(id);
-		let carouselIndex = 0;
+		let carouselIndex = -1;
 
 		//clean navigation buttons
 		let updateSelectedNavBtn = function(index)
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function(event)
 			}, false);			
 		}
 
-		//create navigation
+		//create individual nav
 		let carouselNav = carouselContainer.querySelector(".carousel-nav");
 		for (let i = 0, length = fileName.length; i < length; i++)
 		{
@@ -65,7 +65,28 @@ document.addEventListener("DOMContentLoaded", function(event)
 			carouselNav.appendChild(button);
 			button.addEventListener("click", loadImage.bind(this, i), false);
 		}
+
+		//load first image
 		loadImage(0);
+
+		// carousel auto
+		let carouselManual = false;
+		let carouselAuto = setInterval(function()
+		{
+			if (carouselManual === false)
+			{
+				let nextIndex = carouselIndex + 1;
+				loadImage(nextIndex);
+			}
+		}, 3000);
+		carouselContainer.addEventListener("mouseover", function()
+		{
+			carouselManual = true
+		}, false);
+		carouselContainer.addEventListener("mouseout", function()
+		{
+			carouselManual = false;
+		}, false);
 	}
 	let path = "assets/img/";
 	let fileName = ["test01.jpg", "test02.jpg", "test03.jpg"];

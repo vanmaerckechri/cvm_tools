@@ -4,15 +4,20 @@ $mainText-fontSize: 16px;
 $mainCtnr-maxWidth: 1280px;
 $mainCtnr-margin: 1rem;
 
-$mainSelected-color: purple;
-
 // buttons
 $mainButtonHover-color: orange;
 $mainButton-size: 3rem;
 
 // navigation
+$mainNavLink-color: black;
 $mainNavLinkHover-color: orange;
 $mainNavLink-borderSize: 1px;
+
+// links
+$mainLink-color: black;
+$mainLinkHover-color: orange;
+
+$mainSelected-color: purple;
 
 @mixin widthMaxContent
 {

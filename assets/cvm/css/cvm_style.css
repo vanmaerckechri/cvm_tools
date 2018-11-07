@@ -21,7 +21,7 @@ footer { width: 100vw; background-color: pink; }
 .menu-burger ul { padding-left: 0; display: flex; justify-content: flex-start; align-items: center; }
 .menu-burger li { margin: 0.5rem 0.5rem 0.5rem 0; list-style: none; }
 .menu-burger li:last-child { margin-right: 0; }
-.menu-burger a { border: 1px solid black; padding: 0.5rem; display: block; font-size: 1.2rem; background-color: white; text-decoration: none; }
+.menu-burger a { border: 1px solid black; padding: 0.5rem; display: block; font-size: 1.2rem; background-color: white; text-decoration: none; color: black; }
 .menu-burger a:hover { background-color: orange; }
 
 .menu-sub { border: 1px solid black; padding: 0.5rem; display: block; font-size: 1.2rem; background-color: white; position: relative; overflow: hidden; }
@@ -69,6 +69,12 @@ footer { width: 100vw; background-color: pink; }
 .carousel-container > button:nth-of-type(2) { right: 0; }
 .carousel-container .carousel-nav { max-height: 1rem; height: 100%; width: 100%; display: flex; justify-content: center; align-items: center; }
 .carousel-container .carousel-nav button { height: 100%; flex: 1; }
+
+.alertCookies-container { position: fixed; bottom: 0; width: 100vw; text-align: center; color: white; background-color: #333333; }
+.alertCookies-container p { margin: 0 auto; padding: 1rem; max-width: 1280px; width: 100%; }
+.alertCookies-container a { color: white; font-weight: bold; }
+.alertCookies-container a:hover { color: orange; }
+.alertCookies-container button { margin: 1rem auto 0; display: block; font-size: 1.2rem; }
 
 .hidden { opacity: 0; pointer-events: none; }
 

@@ -43,6 +43,7 @@
 	{
 		@include nav-button;
 		text-decoration: none;
+		color: $mainNavLink-color;
 	}
 }
 .menu-sub

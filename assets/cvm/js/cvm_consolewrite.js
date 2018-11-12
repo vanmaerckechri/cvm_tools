@@ -31,3 +31,7 @@ document.addEventListener("DOMContentLoaded", function(event)
         launchConsoleWrite(consoleWriteExample02, consoleWriteExample02Content);
     }, 2000);
 });
+
+/*
+    need base.scss for "displayNone" class
+*/

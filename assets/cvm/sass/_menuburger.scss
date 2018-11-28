@@ -1,136 +1,93 @@
-@mixin nav-button
-{
-	border: $mainNavLink-borderSize solid black;
-	padding: 0.5rem;
-	display: block;
-	font-size: 1.2rem;
-	background-color: white;
-	&:hover
-	{
-		background-color: $mainNavLinkHover-color;
-	}
-}
-.menu-burger
+.menu_burger
 {
 	position: relative;
-	z-index: 2;
-	// input checkbox for click envent on hamburger button
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	input
 	{
-		margin-top: $mainCtnr-margin;
-		margin-bottom: $mainCtnr-margin;
-		display: none;
-		width: 56px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 48px;
 		height: 48px;
+		opacity: 0;
+		pointer-events: none;
+		z-index: 1;
 	}
 	ul
 	{
 		padding-left: 0;
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
-	}
-	li
-	{
-		margin: 0.5rem 0.5rem 0.5rem 0;
 		list-style: none;
-		&:last-child
+		li
 		{
-			margin-right: 0;
+			margin-left: 1rem;
+			display: inline-block;
+			a
+			{
+				color: $menuButton_main-color_dark;
+			}
 		}
 	}
-	a
-	{
-		@include nav-button;
-		text-decoration: none;
-		color: $mainNavLink-color;
-	}
 }
-.menu-sub
+
+@media screen and (max-width: 590px)
 {
-	@include nav-button;
-	position: relative;
-	overflow: hidden;
-	&:hover
+	.menu_burger
 	{
-		overflow: visible;
-		ul
-		{
-			opacity: 1;
-		}
-	}
-	ul
-	{
-		margin-top: 0.5rem;
-		margin-left: calc(-1 * #{$mainNavLink-borderSize});
-		position: absolute;
-		left: 0;
-		opacity: 0;
-		flex-direction: column;
-		align-items: flex-start;
-		transition: opacity .5s;
-	}
-	li
-	{
-		margin: 0.5rem 0 0 0;
-	}
-	a
-	{
-		@include widthMaxContent;
-	}
-}
-@media screen and (max-width: 408px)
-{
-	.menu-burger
-	{
-		position: relative;
+		flex-wrap: wrap;
 		ul
 		{
 			max-height: 0;
-			flex-direction: column;
-			transform: translateX(calc(-100% - #{$mainCtnr-margin}));
-			transition: transform 0.3s, max-height 0.3s;
-		}
-		li
-		{
-			margin: 0 0 0.5rem 0;
+			height: 100%;
 			width: 100%;
+			text-align: center;
+			overflow: hidden;
+			transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+			li
+			{
+				margin-left: 0;
+				display: block;
+			}
 		}
-		// hamburger icon
+	}
+	.menu_burger-title
+	{
+		flex: 2;
+	}
+	.menu_burger-icon
+	{
+		flex: 1;
+		height: 48px;
 		span
 		{
 			margin-left: auto;
-			margin-right: auto;
-			position: absolute;
-			left: 50%;
-			top: 0;
 			width: 48px;
 			height: 3px;
 			display: block;
-			background-color: $mainNavLinkHover-color;
-			transform: translateX(-50%);
-			transition: opacity 0.5s, transform 0.5s, margin-top 0.5s;
+			background-color: $menuButton_main-color_dark;
 			pointer-events: none;
+			transition: opacity 0.5s, transform 0.5s;
 			&:nth-of-type(1)
 			{
-				transform-origin: left center;
+				transform-origin: left top;
 			}
 			&:nth-of-type(2)
 			{
-				margin-top: 22px;
+				transform: translateY(20px);
 			}
 			&:nth-of-type(3)
 			{
-				margin-top: 45px;
 				transform-origin: left bottom;
+				transform: translateY(40px);
 			}
 		}
+	}
+	.menu_burger
+	{
 		input
 		{
-			margin-left: auto;
-			margin-right: auto;
-			display: block;
-			opacity: 0;
+			pointer-events: auto;
 			&:hover
 			{
 				cursor: pointer;
@@ -138,45 +95,27 @@
 		}
 		input:checked ~ ul
 		{
-			max-height: 100%;
-			transform: translateX(0);
+			max-height: 500px;
+			transition: max-height 1s ease-in-out;
 		}
-		input:checked ~ span
+		input:checked ~ .menu_burger-icon
 		{
-			&:nth-of-type(1)
+			span
 			{
-				margin-top: 22px;
-				transform: rotate(45deg) translateX(-50%);
+				&:nth-of-type(1)
+				{
+					transform: translate(8px, 6px) rotate(45deg);
+				}
+				&:nth-of-type(2)
+				{
+					opacity: 0;
+					transform: translateY(20px) scaleX(0);
+				}			
+				&:nth-of-type(3)
+				{
+					transform: translate(8px, 34px) rotate(-45deg);
+				}
 			}
-			&:nth-of-type(2)
-			{
-				opacity: 0;
-			}			
-			&:nth-of-type(3)
-			{
-				margin-top: 22px;
-				transform: rotate(-45deg) translateX(-50%);
-			}
-		}
-	}	
-	.menu-sub
-	{
-		overflow: visible;
-		background-color: grey;
-		&:hover
-		{
-			background-color: grey;
-		}
-		ul
-		{
-			max-height: inherit;
-			position: static;
-			opacity: 1;
-			transform: none;
-		}	
-		a
-		{
-			width: 100%;	
 		}
 	}
 }

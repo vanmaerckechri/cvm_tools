@@ -1,6 +1,6 @@
 .modal-container
 {
-	width: 100vw;
+	width: 100%;
 	height: 100vh;
 	position: fixed;
 	top: 0;
@@ -18,6 +18,15 @@
 		margin: $mainCtnr-margin;
 		padding: $mainCtnr-margin;
 		max-width: $mainCtnr-maxWidth;
-		background-color: white;
+		background-color: $bg_main-color_light;
+		h2, h3, h4, h5, h6, p
+		{
+			color: $text_main-color_dark;
+		}
+	}
+	.modal-btn
+	{
+		margin-left: auto;
+		display: block;
 	}
 }

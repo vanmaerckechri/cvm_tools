@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(event)
             {
                 clearInterval(interval);
             }
-        }, 33);
+        }, 1);
     }
 
     // for example =>

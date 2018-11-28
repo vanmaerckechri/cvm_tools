@@ -5,11 +5,12 @@ html, body, header, nav, footer, section, div, span, h1, h2, h3, p, a, blockquot
 }
 html
 {
-	width: 100vw;
+	min-width: 250px;
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: $mainText-fontSize;
+	font-size: $general-fontSize;
 }
 body
 {
@@ -20,28 +21,26 @@ body
 	justify-content: flex-start;
 	align-items: center;
 }
+header, section, footer
+{
+	padding: $general-padding;
+	width: 100%;
+}
 #main
 {
-	max-width: $mainCtnr-maxWidth;
-	padding-left: $mainCtnr-margin;
-	padding-right: $mainCtnr-margin;
+	max-width: 100vw;
 	width: 100%;
 	flex: 1;
-
-	background-color: white;
+}
+a
+{
+	text-decoration: none;
 }
 button
 {
+	border: none;
 	&:hover
 	{
-		background-color: $mainButtonHover-color;
 		cursor: pointer;
 	}
-}
-h2
-{
-	margin: 0.5rem 0;
-	width: 100%;
-	color: white;
-	background-color: black;
 }

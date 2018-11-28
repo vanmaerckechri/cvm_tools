@@ -3,7 +3,8 @@ html, body, header, nav, footer, section, div, span, h1, h2, h3, p, a, blockquot
   box-sizing: border-box; }
 
 html {
-  width: 100vw;
+  min-width: 250px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,172 +18,117 @@ body {
   justify-content: flex-start;
   align-items: center; }
 
-#main {
-  max-width: 1280px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  width: 100%;
-  flex: 1;
-  background-color: white; }
-
-button:hover {
-  background-color: orange;
-  cursor: pointer; }
-
-h2 {
-  margin: 0.5rem 0;
-  width: 100%;
-  color: white;
-  background-color: black; }
-
-header {
-  width: 100vw;
-  background-color: pink; }
-
-.headerContent {
-  margin: 0 auto;
+header, section, footer {
   padding: 1rem;
-  max-width: 1280px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center; }
+  width: 100%; }
 
-footer {
-  width: 100vw;
-  background-color: pink; }
+#main {
+  max-width: 100vw;
+  width: 100%;
+  flex: 1; }
+
+a {
+  text-decoration: none; }
+
+button {
+  border: none; }
+  button:hover {
+    cursor: pointer; }
+
+.maxWidth-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1280px;
+  width: 100%; }
+
+.box-dark {
+  background-color: #646464; }
+  .box-dark h2, .box-dark h3, .box-dark h4, .box-dark h5, .box-dark h6, .box-dark p, .box-dark a {
+    color: white; }
+
+.box-light {
+  background-color: #c8c8c8; }
+  .box-light h2, .box-light h3, .box-light h4, .box-light h5, .box-light h6, .box-light p, .box-light a {
+    color: black; }
 
 .footerContent {
-  margin: 0 auto;
-  padding: 1rem;
-  max-width: 1280px;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center; }
 
-.menu-burger {
+.menu_burger {
   position: relative;
-  z-index: 2; }
-  .menu-burger input {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    display: none;
-    width: 56px;
-    height: 48px; }
-  .menu-burger ul {
-    padding-left: 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center; }
-  .menu-burger li {
-    margin: 0.5rem 0.5rem 0.5rem 0;
-    list-style: none; }
-    .menu-burger li:last-child {
-      margin-right: 0; }
-  .menu-burger a {
-    border: 1px solid black;
-    padding: 0.5rem;
-    display: block;
-    font-size: 1.2rem;
-    background-color: white;
-    text-decoration: none;
-    color: black; }
-    .menu-burger a:hover {
-      background-color: orange; }
-
-.menu-sub {
-  border: 1px solid black;
-  padding: 0.5rem;
-  display: block;
-  font-size: 1.2rem;
-  background-color: white;
-  position: relative;
-  overflow: hidden; }
-  .menu-sub:hover {
-    background-color: orange; }
-  .menu-sub:hover {
-    overflow: visible; }
-    .menu-sub:hover ul {
-      opacity: 1; }
-  .menu-sub ul {
-    margin-top: 0.5rem;
-    margin-left: calc(-1 * 1px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .menu_burger input {
     position: absolute;
-    left: 0;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
     opacity: 0;
-    flex-direction: column;
-    align-items: flex-start;
-    transition: opacity .5s; }
-  .menu-sub li {
-    margin: 0.5rem 0 0 0; }
-  .menu-sub a {
-    width: intrinsic;
-    width: -moz-max-content;
-    width: -webkit-max-content; }
+    pointer-events: none;
+    z-index: 1; }
+  .menu_burger ul {
+    padding-left: 0;
+    list-style: none; }
+    .menu_burger ul li {
+      margin-left: 1rem;
+      display: inline-block; }
+      .menu_burger ul li a {
+        color: black; }
 
-@media screen and (max-width: 408px) {
-  .menu-burger {
-    position: relative; }
-    .menu-burger ul {
+@media screen and (max-width: 590px) {
+  .menu_burger {
+    flex-wrap: wrap; }
+    .menu_burger ul {
       max-height: 0;
-      flex-direction: column;
-      transform: translateX(calc(-100% - 1rem));
-      transition: transform 0.3s, max-height 0.3s; }
-    .menu-burger li {
-      margin: 0 0 0.5rem 0;
-      width: 100%; }
-    .menu-burger span {
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); }
+      .menu_burger ul li {
+        margin-left: 0;
+        display: block; }
+
+  .menu_burger-title {
+    flex: 2; }
+
+  .menu_burger-icon {
+    flex: 1;
+    height: 48px; }
+    .menu_burger-icon span {
       margin-left: auto;
-      margin-right: auto;
-      position: absolute;
-      left: 50%;
-      top: 0;
       width: 48px;
       height: 3px;
       display: block;
-      background-color: orange;
-      transform: translateX(-50%);
-      transition: opacity 0.5s, transform 0.5s, margin-top 0.5s;
-      pointer-events: none; }
-      .menu-burger span:nth-of-type(1) {
-        transform-origin: left center; }
-      .menu-burger span:nth-of-type(2) {
-        margin-top: 22px; }
-      .menu-burger span:nth-of-type(3) {
-        margin-top: 45px;
-        transform-origin: left bottom; }
-    .menu-burger input {
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-      opacity: 0; }
-      .menu-burger input:hover {
-        cursor: pointer; }
-    .menu-burger input:checked ~ ul {
-      max-height: 100%;
-      transform: translateX(0); }
-    .menu-burger input:checked ~ span:nth-of-type(1) {
-      margin-top: 22px;
-      transform: rotate(45deg) translateX(-50%); }
-    .menu-burger input:checked ~ span:nth-of-type(2) {
-      opacity: 0; }
-    .menu-burger input:checked ~ span:nth-of-type(3) {
-      margin-top: 22px;
-      transform: rotate(-45deg) translateX(-50%); }
+      background-color: black;
+      pointer-events: none;
+      transition: opacity 0.5s, transform 0.5s; }
+      .menu_burger-icon span:nth-of-type(1) {
+        transform-origin: left top; }
+      .menu_burger-icon span:nth-of-type(2) {
+        transform: translateY(20px); }
+      .menu_burger-icon span:nth-of-type(3) {
+        transform-origin: left bottom;
+        transform: translateY(40px); }
 
-  .menu-sub {
-    overflow: visible;
-    background-color: grey; }
-    .menu-sub:hover {
-      background-color: grey; }
-    .menu-sub ul {
-      max-height: inherit;
-      position: static;
-      opacity: 1;
-      transform: none; }
-    .menu-sub a {
-      width: 100%; } }
+  .menu_burger input {
+    pointer-events: auto; }
+    .menu_burger input:hover {
+      cursor: pointer; }
+  .menu_burger input:checked ~ ul {
+    max-height: 500px;
+    transition: max-height 1s ease-in-out; }
+  .menu_burger input:checked ~ .menu_burger-icon span:nth-of-type(1) {
+    transform: translate(8px, 6px) rotate(45deg); }
+  .menu_burger input:checked ~ .menu_burger-icon span:nth-of-type(2) {
+    opacity: 0;
+    transform: translateY(20px) scaleX(0); }
+  .menu_burger input:checked ~ .menu_burger-icon span:nth-of-type(3) {
+    transform: translate(8px, 34px) rotate(-45deg); } }
 .readMore-container {
   border: 1px solid black;
   padding: 1rem 1rem 3rem 1rem;
@@ -191,7 +137,8 @@ footer {
   .readMore-container .readMore-content {
     max-height: 75px;
     overflow: hidden;
-    text-align: left; }
+    text-align: left;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); }
   .readMore-container > span {
     position: absolute;
     bottom: 0;
@@ -217,12 +164,13 @@ footer {
     .readMore-container input:hover {
       cursor: pointer; }
   .readMore-container input:checked ~ .readMore-content {
-    max-height: 100%; }
+    max-height: 1000px;
+    transition: max-height 1s ease-in-out; }
   .readMore-container input:checked ~ span::after {
     content: "...voir moins"; }
 
 .modal-container {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -239,7 +187,12 @@ footer {
     margin: 1rem;
     padding: 1rem;
     max-width: 1280px;
-    background-color: white; }
+    background-color: #c8c8c8; }
+    .modal-container > div h2, .modal-container > div h3, .modal-container > div h4, .modal-container > div h5, .modal-container > div h6, .modal-container > div p {
+      color: black; }
+  .modal-container .modal-btn {
+    margin-left: auto;
+    display: block; }
 
 @-webkit-keyframes moveNewImgToRight {
   0% {

@@ -1,11 +1,11 @@
- "use strict";
+"use strict";
 
-document.addEventListener("DOMContentLoaded", function(event)
+window.addEventListener("load", function(event)
 {
-	let loadCarousel = function(id, path, fileName, imgAlt)
+	let loadCarousel = function(id, path, fileName, imgAlt, imageList, imageLength)
 	{
 		let carouselContainer = document.getElementById(id);
-		let carouselIndex = -1;
+		let carouselIndex = 0;
 
 		//clean navigation buttons
 		let updateSelectedNavBtn = function(index)
@@ -21,40 +21,68 @@ document.addEventListener("DOMContentLoaded", function(event)
 			navButtons[index].classList.add("selected");
 		}
 
-		//load image
-		let carouselImg = carouselContainer.querySelector("img");
-		let loadImage = function(imageIndex)
+		let changeImage = function(imageIndex)
 		{
-			let imageLength = fileName.length - 1;
-			let src;
-			let alt;
-			if (imageIndex < 0)
+			let imgLenght = carouselContainer.querySelectorAll("img").length;
+			if (imgLenght <= 1)
 			{
-				imageIndex = imageLength;
-			}
-			else if (imageIndex > imageLength)
-			{
-				imageIndex = 0;
-			}
-			carouselIndex = imageIndex;
-			src = path + fileName[carouselIndex];
-			alt = path + imgAlt[carouselIndex];
-			carouselImg.src = src;
-			carouselImg.alt = alt;
+				let lastImage = carouselContainer.querySelector("img");
+				let imageLengthIndex = fileName.length - 1;
 
-			updateSelectedNavBtn(imageIndex);
+				let removeOldImg = function()
+				{
+					let deleteTiming = setTimeout(function()
+					{
+						lastImage.remove();
+					}, 500);
+				}
+
+				let update = function()
+				{
+					carouselIndex = imageIndex;
+					carouselContainer.insertBefore(imageList[carouselIndex], lastImage);
+					updateSelectedNavBtn(imageIndex);
+				}
+
+				if (imageIndex < 0)
+				{
+					imageIndex = imageLengthIndex;
+				}
+				else if (imageIndex > imageLengthIndex)
+				{
+					imageIndex = 0;
+				}
+
+				if (imageIndex > carouselIndex)
+				{
+					imageList[imageIndex].className = "";
+					imageList[imageIndex].classList.add("moveNewImgToRight");
+					lastImage.classList.add("moveOldImgToRight");
+					removeOldImg();
+					update();
+				}
+				else if(imageIndex < carouselIndex)
+				{
+					imageList[imageIndex].className = "";
+					imageList[imageIndex].classList.add("moveNewImgToLeft");
+					lastImage.classList.add("moveOldImgToLeft");
+					removeOldImg();
+					update();
+				}
+			}
 		}
 
 		//initialize arrow nav
 		let arrows = carouselContainer.querySelectorAll("button");
 		for (let i = arrows.length - 1; i >= 0; i--)
 		{
+			arrows[i].classList.remove("displayNone");
 			let directionIndex = i === 1 ? 1 : -1;
 			arrows[i].addEventListener("click", function()
 			{
 				let nextIndex = carouselIndex + directionIndex;
-				loadImage(nextIndex);
-			}, false);			
+				changeImage(nextIndex);
+			}, false);
 		}
 
 		//create individual nav
@@ -62,34 +90,75 @@ document.addEventListener("DOMContentLoaded", function(event)
 		for (let i = 0, length = fileName.length; i < length; i++)
 		{
 			let button = document.createElement("button");
+			button.setAttribute("aria-label", "image" + i);
 			carouselNav.appendChild(button);
-			button.addEventListener("click", loadImage.bind(this, i), false);
+			button.addEventListener("click", changeImage.bind(this, i), false);
+			if (i == 0)
+			{
+				button.classList.add("selected");
+			}
 		}
 
 		//load first image
-		loadImage(0);
+		let img = carouselContainer.querySelector("img");
+		if (img.getAttribute('src') === "")
+		{
+			img.setAttribute("src", imageList[0].src);
+			changeImage(0);
+		}
 
 		// carousel auto
 		let carouselManual = false;
-		let carouselAuto = setInterval(function()
+		let carouselAuto;
+		let launchAutoCarousel = function()
 		{
-			if (carouselManual === false)
+			carouselAuto = setInterval(function()
 			{
 				let nextIndex = carouselIndex + 1;
-				loadImage(nextIndex);
-			}
-		}, 3000);
+				changeImage(nextIndex);
+			}, 5000);
+		}
 		carouselContainer.addEventListener("mouseover", function()
 		{
-			carouselManual = true
+			clearInterval(carouselAuto);
 		}, false);
 		carouselContainer.addEventListener("mouseout", function()
 		{
-			carouselManual = false;
+			launchAutoCarousel();
 		}, false);
+		launchAutoCarousel()
 	}
-	let path = "assets/img/";
-	let fileName = ["test01.jpg", "test02.jpg", "test03.jpg"];
-	let imgAlt = ["image 1", "image 2", "image 3"];
-	loadCarousel("carouselDemo01", path, fileName, imgAlt)
+	//load image
+	let imageList = []
+	let loadImages = function(id, path, fileName, imgAlt)
+	{
+		let imgLength = fileName.length;
+		let imgLoadedLength = 0;
+
+		let checkAllImgLoaded = function(event)
+		{
+			console.log("ok")	
+			event.target.onload = null;
+			imgLoadedLength += 1;
+			if (imgLoadedLength === imgLength)
+			{
+				loadCarousel(id, path, fileName, imgAlt, imageList, imgLength);
+			}
+		}
+
+		let carouselContainer = document.getElementById("carouselDemo01");
+
+		for (let i = 0; i < imgLength; i++)
+		{
+			let img = new Image();
+			img.onload = checkAllImgLoaded;
+			img.src = path + fileName[i];
+			img.alt = imgAlt[i];
+			imageList.push(img);
+		}
+	}
+	for (let i = carouselList.length - 1; i >= 0; i--)
+	{
+		loadImages(carouselList[i]["id"], carouselList[i]["path"], carouselList[i]["fileName"], carouselList[i]["imgAlt"])
+	}
 });

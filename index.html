@@ -77,13 +77,13 @@
 	   	<button class="modal-btn target_test01">modal button</button>
 	   	<!--Carousel-->
 	   	<h2>Carousel</h2>
-	   	<div id="carouselDemo01" class="carousel-container">
-   			<img src="" alt="">
-   			<button><<</button>
-   			<button>>></button>
+		<div id="carousel01" class="carousel-container">
+   			<img src="assets/img/canape_couleur_small.jpg" alt="photo d'un canapé coloré">
+   			<button class="displayNone"><<</button>
+   			<button class="displayNone">>></button>
 	   		<div class="carousel-nav">
 	   		</div>
-	   	</div>
+   		</div>
 	   	<!--Console Write-->
 	   	<h2>Console Write</h2>
 	   	<p id="consoleWriteExample01" class="consoleWrite displayNone">Lorem01 ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -121,6 +121,16 @@
     </div>
     <script type="text/javascript" src="assets/cvm/js/cvm_createdomelem.js"></script>
     <script type="text/javascript" src="assets/cvm/js/cvm_modal.js"></script>
+    <script type="text/javascript">
+    let carousel01 = 
+    {
+    	id: "carousel01",
+		path: "assets/img/",
+		fileName: ["canape_couleur.jpg", "canape_beige.jpg", "canape_bleu.jpg"],
+		imgAlt: ["photo d'un canapé coloré", "photo d'un canapé beige", "photo d'un canapé bleu"]
+	}
+	let carouselList = [carousel01];
+    </script>
     <script type="text/javascript" src="assets/cvm/js/cvm_carousel.js"></script>
     <script type="text/javascript" src="assets/cvm/js/cvm_alertcookies.js"></script>
     <script type="text/javascript" src="assets/cvm/js/cvm_consolewrite.js"></script>

@@ -1,10 +1,55 @@
+@-webkit-keyframes moveNewImgToRight 
+{
+	0% 
+	{
+		transform: translate(-150%, -50%);
+	}
+	100% 
+	{
+		transform: translate(-50%, -50%);
+	}
+}
+@-webkit-keyframes moveNewImgToLeft
+{
+	0% 
+	{
+		transform: translate(50%, -50%);
+	}
+	100% 
+	{
+		transform: translate(-50%, -50%);
+	}
+}
+@-webkit-keyframes moveOldImgToRight 
+{
+	0% 
+	{
+		transform: translate(-50%, -50%);
+	}
+	100% 
+	{
+		transform: translate(50%, -50%);
+	}
+}
+@-webkit-keyframes moveOldImgToLeft 
+{
+	0% 
+	{
+		transform: translate(-50%, -50%);
+	}
+	100% 
+	{
+		transform: translate(-150%, -50%);
+	}
+}
+
+
 .carousel-container
 {
-	margin: 0 auto;
 	position: relative;
-	max-width: 720px;
 	width: 100%;
-	height: 256px;
+	height: 50vh;
+	overflow: hidden;
 	&:hover
 	{
 		& > button
@@ -14,18 +59,54 @@
 	}
 	img
 	{
+		position: absolute;
+		top: 50%;
+		left: 50%;
 		width: 100%;
-		height: calc(100% - #{$mainCtnr-margin});
+		height: 100%;
 		object-fit: cover;
+		transform: translate(-50%, -50%);
+		pointer-events: none;
+	}
+	.moveNewImgToRight
+	{
+		animation: moveNewImgToRight 0.5s forwards;
+	}
+	.moveNewImgToLeft
+	{
+		animation: moveNewImgToLeft 0.5s forwards;
+	}
+	.moveOldImgToRight
+	{
+		animation: moveOldImgToRight 0.5s forwards;
+	}
+	.moveOldImgToLeft
+	{
+		animation: moveOldImgToLeft 0.5s forwards;
+	}
+
+	button
+	{
+		transition: background-color 0.3s, color 0.3s, opacity 0.5s;
 	}
 	& > button
 	{
+		margin: 1rem;
+		border-radius: 50%;
+		padding: 1rem;
 		position: absolute;
 		top: 50%;
-		width: $mainButton-size;
-		height: $mainButton-size;
-		transform: translateY(-50%);
+		font-size: 1.2rem;
+		color: $mainLink-color;
+		background-color: white;
+		box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.75);
 		opacity: 0;
+		transform: translateY(-50%);
+		&:hover
+		{
+			cursor: pointer;
+			background-color: $mainLinkHover-color;
+		}
 	}
 	& > button:nth-of-type(1)
 	{
@@ -37,16 +118,45 @@
 	}
 	.carousel-nav
 	{
-		max-height: $mainCtnr-margin;
-		height: 100%;
+		position: absolute;
+		bottom: 0;
+		max-height: 33%;
 		width: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		text-align: center;
+		z-index: 1;
 		button
 		{
-			height: 100%;
+			margin: 0.5rem 0.5rem;
+			border-radius: 50%;
+			display: inline-block;
+			max-height: 32px;
+			max-width: 32px;
+			min-height: 32px;
+			min-width: 32px;
 			flex: 1;
+			box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.75);
+			&:hover
+			{
+				cursor: pointer;
+				background-color: $mainLinkHover-color;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 4000px)
+{
+	.carousel-container
+	{
+		.carousel-nav
+		{
+			button
+			{
+				max-height: 24px;
+				max-width: 24px;
+				min-height: 24px;
+				min-width: 24px;				
+			}
 		}
 	}
 }

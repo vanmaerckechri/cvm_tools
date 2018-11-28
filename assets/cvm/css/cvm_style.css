@@ -241,40 +241,98 @@ footer {
     max-width: 1280px;
     background-color: white; }
 
+@-webkit-keyframes moveNewImgToRight {
+  0% {
+    transform: translate(-150%, -50%); }
+  100% {
+    transform: translate(-50%, -50%); } }
+@-webkit-keyframes moveNewImgToLeft {
+  0% {
+    transform: translate(50%, -50%); }
+  100% {
+    transform: translate(-50%, -50%); } }
+@-webkit-keyframes moveOldImgToRight {
+  0% {
+    transform: translate(-50%, -50%); }
+  100% {
+    transform: translate(50%, -50%); } }
+@-webkit-keyframes moveOldImgToLeft {
+  0% {
+    transform: translate(-50%, -50%); }
+  100% {
+    transform: translate(-150%, -50%); } }
 .carousel-container {
-  margin: 0 auto;
   position: relative;
-  max-width: 720px;
   width: 100%;
-  height: 256px; }
+  height: 50vh;
+  overflow: hidden; }
   .carousel-container:hover > button {
     opacity: 1; }
   .carousel-container img {
-    width: 100%;
-    height: calc(100% - 1rem);
-    object-fit: cover; }
-  .carousel-container > button {
     position: absolute;
     top: 50%;
-    width: 3rem;
-    height: 3rem;
-    transform: translateY(-50%);
-    opacity: 0; }
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    pointer-events: none; }
+  .carousel-container .moveNewImgToRight {
+    animation: moveNewImgToRight 0.5s forwards; }
+  .carousel-container .moveNewImgToLeft {
+    animation: moveNewImgToLeft 0.5s forwards; }
+  .carousel-container .moveOldImgToRight {
+    animation: moveOldImgToRight 0.5s forwards; }
+  .carousel-container .moveOldImgToLeft {
+    animation: moveOldImgToLeft 0.5s forwards; }
+  .carousel-container button {
+    transition: background-color 0.3s, color 0.3s, opacity 0.5s; }
+  .carousel-container > button {
+    margin: 1rem;
+    border-radius: 50%;
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    font-size: 1.2rem;
+    color: black;
+    background-color: white;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.75);
+    opacity: 0;
+    transform: translateY(-50%); }
+    .carousel-container > button:hover {
+      cursor: pointer;
+      background-color: orange; }
   .carousel-container > button:nth-of-type(1) {
     left: 0; }
   .carousel-container > button:nth-of-type(2) {
     right: 0; }
   .carousel-container .carousel-nav {
-    max-height: 1rem;
-    height: 100%;
+    position: absolute;
+    bottom: 0;
+    max-height: 33%;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
+    text-align: center;
+    z-index: 1; }
     .carousel-container .carousel-nav button {
-      height: 100%;
-      flex: 1; }
+      margin: 0.5rem 0.5rem;
+      border-radius: 50%;
+      display: inline-block;
+      max-height: 32px;
+      max-width: 32px;
+      min-height: 32px;
+      min-width: 32px;
+      flex: 1;
+      box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.75); }
+      .carousel-container .carousel-nav button:hover {
+        cursor: pointer;
+        background-color: orange; }
 
+@media screen and (max-width: 4000px) {
+  .carousel-container .carousel-nav button {
+    max-height: 24px;
+    max-width: 24px;
+    min-height: 24px;
+    min-width: 24px; } }
 .alertCookies-container {
   position: fixed;
   bottom: 0;

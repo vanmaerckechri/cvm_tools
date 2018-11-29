@@ -137,7 +137,6 @@ window.addEventListener("load", function(event)
 
 		let checkAllImgLoaded = function(event)
 		{
-			console.log("ok")	
 			event.target.onload = null;
 			imgLoadedLength += 1;
 			if (imgLoadedLength === imgLength)

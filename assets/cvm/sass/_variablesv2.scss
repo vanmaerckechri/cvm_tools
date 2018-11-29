@@ -6,17 +6,22 @@ $general-fontSize: 16px;
 
 // color
 
-$bg_main-color_dark: rgb(100, 100, 100);
-$bg_main-color_light: rgb(200, 200, 200);
+$bg_main-color_light: #dbdde1;
+$bg_main-color_dark: #2a3036;
 
-$title_main-color_light: rgb(255, 255, 255);
-$title_main-color_dark: rgb(0, 0, 0);
+$title_main-color_light: white;
+$title_main-color_dark: #351e1d;
 
-$text_main-color_light: rgb(255, 255, 255);
-$text_main-color_dark: rgb(0, 0, 0);
+$text_main-color_light: #d4dbe2;
+$text_main-color_dark: #2a3036;
 
-$link_main-color_dark: rgb(0, 0, 0);
 $link_main-color_light: rgb(255, 255, 255);
+$link_main-color_dark: rgb(0, 0, 0);
 
-$menuButton_main-color_dark: rgb(0, 0, 0);
 $menuButton_main-color_light: rgb(255, 255, 255);
+$menuButton_main-color_dark: #351e1d;
+
+// font-family
+
+$title_main-fontFam: 'Montserrat', sans-serif;
+$text_main-fontFam: 'Rubik', sans-serif;

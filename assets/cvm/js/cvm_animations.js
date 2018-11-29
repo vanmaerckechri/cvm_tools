@@ -32,6 +32,26 @@ window.addEventListener("load", function(event)
 			anime.classList.remove("anime-scaleUpWait");
 		}
 
+		let animeConsoleList = animeContainer.querySelectorAll(".anime-console");
+		for (let anime of animeConsoleList)
+		{
+			let content = anime.textContent;
+			anime.style.height = anime.offsetHeight + "px";
+	        anime.textContent = "";
+	        anime.classList.remove("anime-console");
+	        let indexLetter = 0;
+	        let interval = setInterval (function()
+	        {
+	            anime.textContent += content[indexLetter];
+	            indexLetter += 1; 
+	            if (content.length - 1 <= indexLetter)
+	            {
+	            	anime.style.height = "";
+	                clearInterval(interval);
+	            }
+	        }, 1);
+		}
+
 		animeContainer.classList.remove("anime-container");
 	}
 
@@ -39,15 +59,13 @@ window.addEventListener("load", function(event)
 	{
 		let displayAnimeContainerList = document.querySelectorAll(".anime-container");
 		let headerHeight = document.getElementsByTagName("header")[0].offsetHeight;
-		let scrollTop = window.pageYOffset + headerHeight + window.innerHeight / 2;
+		let midHeight = window.pageYOffset + window.innerHeight / 2;
 
 		for (let animeContainer of displayAnimeContainerList)
 		{
-			let disAnContainerHeight = animeContainer.offsetHeight;
 			let disAnContainerTop = animeContainer.offsetTop;
-			let disAnContainerBot = disAnContainerTop + disAnContainerHeight;
 
-			if (scrollTop >= disAnContainerTop && scrollTop < disAnContainerBot)
+			if (midHeight > disAnContainerTop)
 			{
 				launchAnime(animeContainer);
 			}

@@ -8,7 +8,7 @@
 .box-dark
 {
 	background-color: $bg_main-color_dark;
-	h2, h3, h4, h5, h6, span
+	h2, h3, h4, h5, h6, span, label
 	{
 		color: $title_main-color_light;
 	}
@@ -24,7 +24,7 @@
 .box-light
 {
 	background-color: $bg_main-color_light;
-	h2, h3, h4, h5, h6, span
+	h2, h3, h4, h5, h6, span, label
 	{
 		color: $title_main-color_dark;
 	}

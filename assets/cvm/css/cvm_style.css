@@ -25,9 +25,9 @@ header, section, footer {
   width: 100%; }
 
 #main {
-  max-width: 100vw;
   width: 100%;
-  flex: 1; }
+  flex: 1;
+  overflow-x: hidden; }
   #main h2 {
     margin-bottom: 1rem; }
 
@@ -55,7 +55,7 @@ button {
 
 .box-dark {
   background-color: #2a3036; }
-  .box-dark h2, .box-dark h3, .box-dark h4, .box-dark h5, .box-dark h6, .box-dark span {
+  .box-dark h2, .box-dark h3, .box-dark h4, .box-dark h5, .box-dark h6, .box-dark span, .box-dark label {
     color: white; }
   .box-dark p {
     color: #d4dbe2; }
@@ -64,7 +64,7 @@ button {
 
 .box-light {
   background-color: #dbdde1; }
-  .box-light h2, .box-light h3, .box-light h4, .box-light h5, .box-light h6, .box-light span {
+  .box-light h2, .box-light h3, .box-light h4, .box-light h5, .box-light h6, .box-light span, .box-light label {
     color: #351e1d; }
   .box-light p {
     color: #2a3036; }
@@ -212,6 +212,36 @@ button {
   .modal-container .modal-btn {
     margin-left: auto;
     display: block; }
+
+.pwdStrength-container label {
+  position: relative;
+  min-width: 140px;
+  display: inline-block; }
+
+.pwdStrength-container_faible::after {
+  content: "low";
+  color: red; }
+
+.pwdStrength-container_moyen::after {
+  content: "middle";
+  color: orange; }
+
+.pwdStrength-container_fort::after {
+  content: "strong";
+  color: green; }
+
+.pwdRepeat-container label {
+  position: relative;
+  min-width: 140px;
+  display: inline-block; }
+
+.pwdRepeat-container_error::after {
+  content: "passwords are not the same";
+  color: red; }
+
+.pwdRepeat-container_correct::after {
+  content: "passwords are the same";
+  color: green; }
 
 @-webkit-keyframes moveNewImgToRight {
   0% {

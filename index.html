@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <link rel="icon" type="image/png" href="">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Rubik:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="assets/cvm/css/cvm_style.css">
+    <link rel="stylesheet" href="assets/css/cvm_style.css">
     <title></title>
 </head>
 <body>
@@ -162,16 +162,25 @@
 	   	<section class="box-dark">
 	   		<div class="maxWidth-container">
 	   			<h2>Password Strength</h2>
-		   		<form method="post" action="">
+		   		<form class="inputRepeat-form" method="post" action="">
 		       		<div id="repeat01" class="pwdStrength-container">
 		       			<label for="pwd">Password</label>
-		       			<input type="password" name="pwd" required>
+		       			<input class="inputRepeat-input1" type="password" name="pwd" required>
 		       		</div>
 		       		<div class="pwdRepeat-container target_repeat01">
 		       			<label for="pwdRepeat">Repeat Password</label>
-		       			<input type="password" name="pwdRepeat" required>
+		       			<input class="inputRepeat-input2" type="password" name="pwdRepeat" required>
 		       		</div>
+		       		<input class="inputRepeat-submit" type=submit value="valider">
 				</form>
+			</div>
+	   	</section>
+	   	<!--Text Animation 01-->
+	   	<section class="box-light">
+	   		<div class="textAnimation01 maxWidth-container">
+	   			<h2>Text Animation 01</h2>
+	   			<h3 class="textAnimation01_focus">Lorem Ipsum Dolor Sit Amet, Consectetur Adipisicing Elit...</h3>
+	   			<button>Test</button>
 			</div>
 	   	</section>
 	</div>
@@ -194,13 +203,14 @@
 	}
 	let carouselList = [carousel01];
     </script>
-    <script type="text/javascript" src="assets/cvm/js/cvm_createdomelem.js"></script>
-    <script type="text/javascript" src="assets/cvm/js/cvm_modal.js"></script>
-    <script type="text/javascript" src="assets/cvm/js/cvm_pwdstrength.js"></script>
-    <script type="text/javascript" src="assets/cvm/js/cvm_pwdrepeat.js"></script>
-    <script type="text/javascript" src="assets/cvm/js/cvm_alertcookies.js"></script>
-    <script type="text/javascript" src="assets/cvm/js/cvm_optimg.js"></script>
-    <script type="text/javascript" src="assets/cvm/js/cvm_carousel.js"></script>
-    <script type="text/javascript" src="assets/cvm/js/cvm_animations.js"></script>
+    <script type="text/javascript" src="assets/js/cvm_createdomelem.js"></script>
+    <script type="text/javascript" src="assets/js/cvm_modal.js"></script>
+    <script type="text/javascript" src="assets/js/cvm_pwdstrength.js"></script>
+    <script type="text/javascript" src="assets/js/cvm_inputrepeat.js"></script>
+    <script type="text/javascript" src="assets/js/cvm_alertcookies.js"></script>
+    <script type="text/javascript" src="assets/js/cvm_optimg.js"></script>
+    <script type="text/javascript" src="assets/js/cvm_carousel.js"></script>
+    <script type="text/javascript" src="assets/js/cvm_animations.js"></script>
+    <script type="text/javascript" src="assets/js/cvm_textAnimation01.js"></script>
 </body>
 </html>

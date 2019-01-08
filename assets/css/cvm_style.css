@@ -230,18 +230,24 @@ button {
   content: "strong";
   color: green; }
 
-.pwdRepeat-container label {
-  position: relative;
-  min-width: 140px;
-  display: inline-block; }
+.inputRepeat-form {
+  position: relative; }
+  .inputRepeat-form input {
+    display: block; }
 
-.pwdRepeat-container_error::after {
-  content: "passwords are not the same";
-  color: red; }
+.inputRepeat-error::after, .inputRepeat-correct::after {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  font-size: 1rem;
+  letter-spacing: 0.1rem; }
 
-.pwdRepeat-container_correct::after {
-  content: "passwords are the same";
-  color: green; }
+.inputRepeat-error {
+  padding-bottom: 2rem 0; }
+  .inputRepeat-error::after {
+    content: "les champs ne sont pas identiques!";
+    color: red; }
 
 @-webkit-keyframes moveNewImgToRight {
   0% {
@@ -366,6 +372,20 @@ button {
 
 .selected {
   background-color: purple; }
+
+@keyframes textAnimation01 {
+  0% {
+    opacity: 1; }
+  25% {
+    opacity: 0.5; }
+  50% {
+    opacity: 0.9; }
+  75% {
+    opacity: 0.5; }
+  100% {
+    opacity: 1; } }
+.textAnimation01-letter {
+  animation: textAnimation01 1s; }
 
 .anime-display {
   transition: opacity 1.5s; }

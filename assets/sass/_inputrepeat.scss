@@ -1,0 +1,30 @@
+.inputRepeat-form
+{
+	position: relative;
+	input
+	{
+		display: block;
+	}
+}
+.inputRepeat-error, .inputRepeat-correct
+{
+	&::after
+	{
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 100%;
+		font-size: 1rem;
+		letter-spacing: 0.1rem;
+	}
+}
+
+.inputRepeat-error
+{
+	padding-bottom: 2rem 0;
+	&::after
+	{
+		content: "les champs ne sont pas identiques!";
+		color: red;
+	}	
+}

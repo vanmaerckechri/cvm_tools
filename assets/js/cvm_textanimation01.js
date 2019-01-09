@@ -46,12 +46,12 @@ document.addEventListener("DOMContentLoaded", function(event)
 	    }
 
 
-	    transformToSymbols(that, event)
+	    transformToSymbols(that, tagFocus, event)
 	    {
 	    	event.preventDefault();
 
-			let tagFocus = this.container.querySelector(".textAnimation01_focus");
-			this.textOrigin = tagFocus.textContent;
+	    	tagFocus.textContent = this.textOrigin;
+
 			let textTemp = "";
 			for (let i = 0, length = this.textOrigin.length; i < length; i++)
 			{
@@ -66,7 +66,10 @@ document.addEventListener("DOMContentLoaded", function(event)
 		{
 			let that = this;
 			let launchBtn = this.container.querySelector("button");
-			launchBtn.addEventListener("click", this.transformToSymbols.bind(this, that), false);
+			let tagFocus = this.container.querySelector(".textAnimation01_focus");
+			this.textOrigin = tagFocus.textContent;
+
+			launchBtn.addEventListener("click", this.transformToSymbols.bind(this, that, tagFocus), false);
 		}
 	}
 
